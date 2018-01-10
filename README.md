@@ -6,17 +6,17 @@ macOS_toolbox is a replacement for busybox/toybox for macOS. It combines several
 
 ## Building
 
-**Install Xcode Command Line Tools
+**Install Xcode Command Line Tools**
 ```
 $ xcode-select --install
 ```
 
-**Download files
+**Download files**
 ```
 $ git clone https://github.com/lukas-zronek/macOS_toolbox.git
 ```
 
-**Compile
+**Compile**
 ```
 $ cd macOS_toolbox
 ```
