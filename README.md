@@ -4,41 +4,35 @@ ssh-askpass-mac is a graphical password prompt for OpenSSH on macOS, which can s
 
 ![screenshot](https://github.com/lukas-zronek/screenshots/blob/master/ssh-askpass-mac/passphrase.png  "Screenshot of ssh-askpass-mac")
 
-It can also be used as a confirmation dialog when accessing a key in the ssh-agent (_ssh-add -c_):
+It can also be used as a confirmation dialog when accessing a key in the ssh-agent:
 
 ![screenshot](https://github.com/lukas-zronek/screenshots/blob/master/ssh-askpass-mac/confirmation.png  "Screenshot of ssh-askpass-mac")
 
 ssh-askpass-mac was inspired by [ksshaskpass](https://github.com/KDE/ksshaskpass) and should behave like the keychain support prior macOS Sierra.
 
-## Building
+## Installation
 
-**Install Xcode**
+**Download**
 
-You can obtain the latest version of Xcode from the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835)
+Download (ssh-asspass-mac)[https://github.com/lukas-zronek/ssh-askpass-mac/releases/download/v1.0/ssh-askpass-mac.zip] and the (sha256 checksum)[https://github.com/lukas-zronek/ssh-askpass-mac/releases/download/v1.0/ssh-askpass-mac.zip.sha256]
 
-**Download project**
+**Verify**
 
-Open a terminal and run:
+Check the integrity of the downloaded file from the command line. Open the terminal application, change to the download directory, and run the following command:
 ```
-git clone https://github.com/lukas-zronek/ssh-askpass-mac.git
-```
-
-**Compile**
-```
-cd ssh-askpass-mac
+shasum -c ssh-askpass-mac.zip.sha25
 ```
 
+The output should match:
 ```
-xcodebuild
-```
-
-**Installation**
-
-```
-cp -R build/Release/ssh-askpass.app /Applications
+ssh-askpass-mac.zip: OK
 ```
 
-**Configuration**
+**Copy**
+
+Extract the file ssh-askpass-mac.zip and move the file ssh-askpass.app to Applications.
+
+## Configuration
 
 Add the following lines to your _.bash_profile_ in your home directory:
 
@@ -58,6 +52,34 @@ ssh-add()
 {
         command ssh-add $@ < /dev/null
 }
+```
+
+## Building from source
+
+**Install Xcode**
+
+You can obtain the latest version of Xcode from the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835)
+
+**Download**
+
+Open a terminal and run:
+```
+git clone https://github.com/lukas-zronek/ssh-askpass-mac.git
+```
+
+**Compile**
+```
+cd ssh-askpass-mac
+```
+
+```
+xcodebuild
+```
+
+**Install**
+
+```
+cp -R build/Release/ssh-askpass.app /Applications
 ```
 
 ## License
